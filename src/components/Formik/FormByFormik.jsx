@@ -18,10 +18,10 @@ export default function FormByFormik({ onSubmit }) {
             .positive('Positive!')
             .integer(),
         })}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { resetForm }) => {
           console.log(values);
           onSubmit(values);
-          setSubmitting(false);
+          resetForm();
         }}
       >
         {({
@@ -54,7 +54,7 @@ export default function FormByFormik({ onSubmit }) {
             <Field
               className={s.input}
               id="number"
-              type="number"
+              type="tel"
               name="number"
               onChange={handleChange}
               onBlur={handleBlur}
